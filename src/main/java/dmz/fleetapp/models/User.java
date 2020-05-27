@@ -12,18 +12,24 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
+
+
 }
 
